@@ -20,6 +20,5 @@ public interface JobListingRepository extends JpaRepository<JobListing,Long> {
 
     List<JobListing> findBySalaryMinGreaterThanEqual(BigDecimal salary);
 
-    List<JobListing> findByStatusAndEmploymentType(String status, String employmentType);
-
+    List<JobListing> findByRequiredYearsLessThanEqual(int years);
 }
