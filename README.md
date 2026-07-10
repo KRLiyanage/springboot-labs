@@ -7,13 +7,12 @@ This repository contains my practical implementations and solutions for the Spri
 *   **Spring Boot** (Spring Web, Spring Data JPA, Spring Security)
 *   **Build Tool:** Maven / Gradle
 *   **Database:** MySQL / H2 (as required per lab)
-*   **IDE:** IntelliJ IDEA / STS / VS Code
+*   **IDE:** IntelliJ IDEA 
 
 ## 📁 Repository Contents
-*   **Lab 01:** Introduction to Spring Boot & Project Architecture
-*   **Lab 02:** Creating RESTful APIs (CRUD Operations)
-*   **Lab 03:** Working with Spring Data JPA & Databases
-*   **Lab 04:** Exception Handling & Validation
-*   *(Add more as you complete them)*
+*   **Lab 01:**
+*   **Lab 02:** 
+*   **Lab 03:** 
+
 
 
