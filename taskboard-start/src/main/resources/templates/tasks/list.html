@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:if="${#lists.isEmpty(tasks)}">
+    No tasks found.
+</p>
+<table>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}">Title</td>
+        <td th:text="${task.status}">Status</td>
+        <td th:text="${task.dueDate}">Due</td>
+        <td><a th:href="@{/tasks/{id}(id=${task.id})}">View</a></td>
+    </tr>
+</table>
+</body>
+</html>
