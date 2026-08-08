@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+
+<body>
+
+<nav>
+    <a th:href="@{/tasks}">Tasks</a>
+    <a th:href="@{/tasks/new}">New Task</a>
+</nav>
+
+<hr>
+
+<h1>Task List</h1>
+
+<p th:if="${#lists.isEmpty(tasks)}">
+    No tasks found.
+</p>
+
+<div th:if="${success}"
+     style="background-color: #d4edda; padding: 10px;">
+    <span th:text="${success}"></span>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Due</th>
+        <th>View</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.status}"></td>
+        <td th:text="${task.dueDate}"></td>
+        <td>
+            <a th:href="@{/tasks/{id}(id=${task.id})}">
+                View
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

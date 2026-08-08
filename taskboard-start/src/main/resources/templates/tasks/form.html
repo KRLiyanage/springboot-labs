@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Task</title>
+</head>
+
+<body>
+
+<h1>New Task</h1>
+
+<form th:action="@{/tasks}" th:object="${taskForm}" method="post">
+
+    <label>Title</label>
+    <input type="text" th:field="*{title}">
+    <p th:if="${#fields.hasErrors('title')}"
+       th:errors="*{title}">
+    </p>
+
+    <br>
+
+    <label>Due Date</label>
+    <input type="date" th:field="*{dueDate}">
+
+    <br><br>
+
+    <button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>

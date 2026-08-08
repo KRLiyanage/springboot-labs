@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" th:href="@{/tasks}">Tasks</a>
+    <a class="nav-link" th:href="@{/tasks/new}">New Task</a>
+</nav>
+<div class="container mt-4" th:fragment="content">
+    <!-- pages replace this element-->
+</div>
+</body></html>
