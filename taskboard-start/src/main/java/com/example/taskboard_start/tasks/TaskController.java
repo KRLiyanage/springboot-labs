@@ -29,6 +29,12 @@ public class TaskController {
         return taskService.findById(id);
     }
 
+    @GetMapping("/new")
+    public String newTaskForm(Model model) {
+        model.addAttribute("taskForm", new TaskForm());
+        return "tasks/form";
+    }
+
     @PostMapping
     public Task save(@RequestBody Task task){
         return taskService.save(task);
