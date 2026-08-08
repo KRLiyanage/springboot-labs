@@ -1,11 +1,13 @@
 package com.example.taskboard_start.tasks;
 
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/tasks")
 public class TaskController {
 
@@ -17,8 +19,9 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<Task> getAll(){
-        return taskService.findAll();
+    public String listTasks(Model model){
+        model.addAttribute("tasks",taskService.findAll());
+        return "tasks/list";
     }
 
     @GetMapping("/{id}")
