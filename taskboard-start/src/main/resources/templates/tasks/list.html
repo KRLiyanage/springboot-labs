@@ -21,6 +21,11 @@
     No tasks found.
 </p>
 
+<div th:if="${success}"
+     style="background-color: #d4edda; padding: 10px;">
+    <span th:text="${success}"></span>
+</div>
+
 <table>
     <thead>
     <tr>

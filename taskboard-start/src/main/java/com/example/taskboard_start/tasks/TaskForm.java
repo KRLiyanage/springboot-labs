@@ -1,5 +1,6 @@
 package com.example.taskboard_start.tasks;
 
+
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ public class TaskForm {
     @NotBlank(message = "Title is required")
     private String title;
 
-    private String status;
+    private TaskStatus status;
 
     private LocalDate dueDate;
 
@@ -21,11 +22,11 @@ public class TaskForm {
         this.title = title;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
