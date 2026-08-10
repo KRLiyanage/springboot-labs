@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::main})}">
+<head>
+    <title>Reading List</title>
+</head>
+<body>
+
+<main>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>My Reading List</h2>
+        <a th:href="@{/books/new}" class="btn btn-primary">Add Book</a>
+    </div>
+
+    <!-- Success Flash Message Banner -->
+    <div th:if="${successMessage}"
+         class="alert alert-success alert-dismissible fade show"
+         role="alert"
+         th:text="${successMessage}">
+        Success message text goes here.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Empty State Message -->
+    <div th:if="${#lists.isEmpty(books)}" class="alert alert-info">
+        Your reading list is empty.
+    </div>
+
+    <!-- Books Table -->
+    <div th:if="${not #lists.isEmpty(books)}" class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Pages</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}">
+                <td>
+                    <a th:href="@{/books/{id}(id=${book.id})}"
+                       th:text="${book.title}"
+                       class="fw-bold text-decoration-none">Title</a>
+                </td>
+                <td th:text="${book.author}">Author</td>
+                <td th:text="${book.genre}">Genre</td>
+                <td th:text="${book.pages}">0</td>
+                <td>
+                    <span class="badge bg-secondary" th:text="${book.readingStatus}">Status</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+</body>
+</html>

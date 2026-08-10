@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::main})}">
+<head>
+    <title>Book Form</title>
+</head>
+<body>
+
+<main>
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0" th:text="${bookForm.title == null ? 'Add New Book' : 'Edit Book'}">Book Form</h3>
+        </div>
+        <div class="card-body">
+            <form th:action="@{__${formAction}__}" th:object="${bookForm}" method="post">
+
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" th:field="*{title}" id="title" class="form-class"
+                           th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''" />
+                    <div class="invalid-feedback" th:errors="*{title}">Title Error</div>
+                </div>
+
+                <!-- Author -->
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" th:field="*{author}" id="author" class="form-control"
+                           th:classappend="${#fields.hasErrors('author')} ? 'is-invalid' : ''" />
+                    <div class="invalid-feedback" th:errors="*{author}">Author Error</div>
+                </div>
+
+                <!-- Genre -->
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" th:field="*{genre}" id="genre" class="form-control"
+                           th:classappend="${#fields.hasErrors('genre')} ? 'is-invalid' : ''" />
+                    <div class="invalid-feedback" th:errors="*{genre}">Genre Error</div>
+                </div>
+
+                <!-- Pages -->
+                <div class="mb-3">
+                    <label for="pages" class="form-label">Pages</label>
+                    <input type="number" th:field="*{pages}" id="pages" class="form-control"
+                           th:classappend="${#fields.hasErrors('pages')} ? 'is-invalid' : ''" />
+                    <div class="invalid-feedback" th:errors="*{pages}">Pages Error</div>
+                </div>
+
+                <!-- Reading Status -->
+                <div class="mb-3">
+                    <label for="readingStatus" class="form-label">Reading Status</label>
+                    <select th:field="*{readingStatus}" id="readingStatus" class="form-select"
+                            th:classappend="${#fields.hasErrors('readingStatus')} ? 'is-invalid' : ''">
+                        <option value="">-- Select Status --</option>
+                        <option th:each="status : ${T(com.example.reading_list.model.ReadingStatus).values()}"
+                                th:value="${status}"
+                                th:text="${status}">Status</option>
+                    </select>
+                    <div class="invalid-feedback" th:errors="*{readingStatus}">Status Error</div>
+                </div>
+
+                <!-- Notes -->
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea th:field="*{notes}" id="notes" rows="3" class="form-control"></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <button type="submit" class="btn btn-success">Save</button>
+                <a th:href="@{/books}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
