@@ -12,18 +12,18 @@ public class Book {
     private String title;
     private String author;
     private String genre;
-    private int page;
+    private int pages;
 
     @Enumerated(EnumType.STRING)
     private ReadingStatus readingStatus;
 
     private String notes;
 
-    public Book(String title, String author, String genre, int page, ReadingStatus readingStatus, String notes) {
+    public Book(String title, String author, String genre, int pages, ReadingStatus readingStatus, String notes) {
         this.title = title;
         this.author = author;
         this.genre = genre;
-        this.page = page;
+        this.pages = pages;
         this.readingStatus = readingStatus;
         this.notes = notes;
     }
@@ -64,12 +64,12 @@ public class Book {
         this.genre = genre;
     }
 
-    public int getPage() {
-        return page;
+    public int getPages() {
+        return pages;
     }
 
-    public void setPage(int page) {
-        this.page = page;
+    public void setPages(int pages) {
+        this.pages = pages;
     }
 
     public ReadingStatus getReadingStatus() {
